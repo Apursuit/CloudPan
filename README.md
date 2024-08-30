@@ -117,14 +117,19 @@ if ($fullPath === false || strpos($fullPath, $panDir) !== 0) {
 $predefinedMd5Hash = '73eff6386ce2091b5ca702fc007e1da9';
 
 # 允许上传文件的最大大小。
-# php.ini   vim编辑时，使用“/关键字”快速匹配
+# php.ini配置，已在.user.ini下设置，不用修改
 // upload_max_filesize = 1024M
 // post_max_size = 1024M
 // memory_limit = 1024M
-# nginx
+# 需要nginx中添加下面配置，使能够上传1M大小以上的文件
 //client_max_body_size 1024M;
 ```
 
 ## 样式
 
 所有样式都堆在了styles/index.css里，依托石山。有...有兴趣可以试着修改。
+
+## 更新日志
+
+- 2024-08-30：上传功能，登录功能，视频播放功能，音乐播放功能，图片预览功能，管理员功能
+- 2024-08-30：添加.user.ini文件，免除手动修改php.ini的麻烦
