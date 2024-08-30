@@ -20,7 +20,7 @@
 
 ## 使用
 
-解压www.zip压缩包，把html里的文件复制到/var/www/html目录下
+把html里的文件复制到/var/www/html目录下
 
 创建盘根目录/var/www/pan，如果把其他目录作为盘根目录，在配置文件里修改
 
