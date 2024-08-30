@@ -55,17 +55,17 @@ chmod -R 755 /var/www/pan
 
 ## 效果图
 
-![首页](https://the0n3.top/medias/cloudpan/index.png)
+![首页](./show-site/index.png)
 
-![主题](https://the0n3.top/medias/cloudpan/dark.png)
+![主题](./show-site/dark.png)
 
-![登录](https://the0n3.top/medias/cloudpan/login.png)
+![登录](./show-site/login.png)
 
-![在线音乐](https://the0n3.top/medias/cloudpan/music.png)
+![在线音乐](./show-site/music.png)
 
-![预览图片](https://the0n3.top/medias/cloudpan/photos.png)
+![预览图片](./show-site/photos.png)
 
-![在线视频](https://the0n3.top/medias/cloudpan/video.png)
+![在线视频](./show-site/video.png)
 
 ## 配置文件config.php
 
