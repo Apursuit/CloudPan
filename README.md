@@ -97,11 +97,11 @@ $icons = [
 # 禁止web父级目录直接作为根目录
 $panDir = "/var/www/pan";
 
-// 获取音乐目录MP3下的所有MP3文件
+# 获取音乐目录MP3下的所有MP3文件
 $musicDir = $panDir . '/mp3/';
-// 获取视频目录video下的所有视频文件
+# 获取视频目录video下的所有视频文件
 # 此处取消注释会报错
-// $videoDir = $panDir . '/video/';
+# $videoDir = $panDir . '/video/';
 
 # 路径处理
 $dir = isset($_GET['dir']) ? urldecode($_GET['dir']) : '';
@@ -114,16 +114,17 @@ if ($fullPath === false || strpos($fullPath, $panDir) !== 0) {
 }
 
 # admin超管账号，默认admin password，看到这里，请手动生成你的用户名和密码，换为md5摘要，不要明文存储
-// $predefinedMd5Hash = md5("$username".":"."$password");
+# $predefinedMd5Hash = md5("$username".":"."$password");
 $predefinedMd5Hash = '73eff6386ce2091b5ca702fc007e1da9';
 
 # 允许上传文件的最大大小。
 # php.ini配置，已在.user.ini下设置，不用修改
-// upload_max_filesize = 1024M
-// post_max_size = 1024M
-// memory_limit = 1024M
-# 需要nginx中添加下面配置，使能够上传1M大小以上的文件
-//client_max_body_size 1024M;
+# upload_max_filesize = 1024M
+# post_max_size = 1024M
+# memory_limit = 1024M
+# 需要在nginx配置文件的server或location中添加下面配置，使能够上传1M大小以上的文件
+# nginx配置文件常见位置：/etc/nginx/sites-available/default
+# client_max_body_size 1024M;
 ```
 
 ## 样式
