@@ -24,8 +24,6 @@
 
 创建盘根目录/var/www/pan，如果把其他目录作为盘根目录，在配置文件里修改
 
-在盘根目录下，创建img，mp3，video等文件夹
-
 权限相关：
 
 由于并不熟悉linux权限知识，我给的权限是
@@ -34,6 +32,9 @@
 chown -R www-data:www-data /var/www/pan
 chmod -R 755 /var/www/pan
 ```
+现在www-data用户可以访问文件，上传文件，创建文件夹了
+
+在盘根目录下，创建img，mp3，video等文件夹
 
 ## 功能
 
