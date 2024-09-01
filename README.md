@@ -20,6 +20,8 @@
 
 ## 使用
 
+项目地址：[【极简云盘】](https://github.com/Apursuit/CloudPan)
+
 把html里的文件复制到/var/www/html目录下
 
 创建盘根目录/var/www/pan，如果把其他目录作为盘根目录，在配置文件里修改
