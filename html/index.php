@@ -125,12 +125,12 @@ if ($isLoggedIn && $_SERVER['REQUEST_METHOD'] === 'POST') {
                         $filePath = $currentDir . '/' . $file;
                         $relativePath = $dir ? $dir . '/' . $file : $file; // 相对路径
                         $ext = pathinfo($file, PATHINFO_EXTENSION);
-                        $fileUrl = './src/API_download.php?file=' . urlencode($relativePath); // 自动生成下载链接
                         
                         if (is_dir($filePath)) {
                             $icon = '<img src="' . $icons['folder'] . '" alt="icon" class="icon-img">';
                             echo '<li class="folder"><a href="index.php?dir=' . urlencode($relativePath) . '">' . $icon . $file . '</a></li>';
                         } else {
+                            $fileUrl = './src/API_download.php?file=' . urlencode($filePath); // 自动生成下载链接
                             $icon = isset($icons[$ext]) ? '<img src="' . $icons[$ext] . '" alt="icon" class="icon-img">' : '<img src="icons/file_icon.png" alt="icon" class="icon-img">';
                             echo '<li class="file">' . $icon . $file . '<a href="' . $fileUrl . '" download><div class="download-btn"><i class="fa-solid fa-download"></i> 下载</div></a></li>';
                         }
