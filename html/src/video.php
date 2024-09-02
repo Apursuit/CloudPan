@@ -1,15 +1,6 @@
 <!-- 导入配置 -->
 <?php session_start();include('config.php');?>
-<?php
-// 检查用户是否登录
-if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
-    // 用户未登录，重定向到 login.php
-    header('Location: ./login.php');
-    exit;
-}
 
-$isLoggedIn = true; // 用户已登录
-?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
