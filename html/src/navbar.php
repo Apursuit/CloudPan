@@ -19,9 +19,7 @@
         <a href="../index.php?dir=">首页</a>
         <a href="./music.php">音乐</a>
         <a href="./photos.php">图片</a>
-        <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']): ?>
-            <a href="./video.php">视频</a>
-        <?php endif; ?>
+        <a href="./video.php">视频</a>
         <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']): ?>
             <a href="./logout.php">退出</a>
         <?php else: ?>
