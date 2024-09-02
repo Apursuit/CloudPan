@@ -19,7 +19,6 @@ $icons = [
     'folder' => 'icons/folder_icon.png',
 ];
 
-
 # 网盘根目录，建议绝对路径。并且不要放在web目录下，否则可能造成文件上传等漏洞
 # 禁止web父级目录直接作为根目录
 $panDir = "/var/www/pan";
@@ -30,17 +29,7 @@ $musicDir = $panDir . '/mp3/';
 # 此处取消注释会报错
 # $videoDir = $panDir . '/video/';
 
-# 路径处理
-$dir = isset($_GET['dir']) ? urldecode($_GET['dir']) : '';
-$fullPath = realpath($panDir . '/' . $dir);
-
-if ($fullPath === false || strpos($fullPath, $panDir) !== 0) {
-    $rootDir = $panDir;
-} else {
-    $rootDir = $fullPath;
-}
-
-# admin超管账号，默认admin password，看到这里，请手动生成你的用户名和密码，换为md5摘要，不要明文存储
+# admin超管账号，默认admin password，看到这里，请手动修改你的用户名和密码
 $username = "admin";
 $password = "password";
 $predefinedMd5Hash = md5($username.":".$password);
@@ -52,3 +41,13 @@ $predefinedMd5Hash = md5($username.":".$password);
 # 需要在nginx配置文件的server或location中添加下面配置，使能够上传1M大小以上的文件
 # nginx配置文件常见位置：/etc/nginx/sites-available/default
 # client_max_body_size 1024M;
+
+# 路径处理
+$dir = isset($_GET['dir']) ? urldecode($_GET['dir']) : '';
+$fullPath = realpath($panDir . '/' . $dir);
+
+if ($fullPath === false || strpos($fullPath, $panDir) !== 0) {
+    $rootDir = $panDir;
+} else {
+    $rootDir = $fullPath;
+}
