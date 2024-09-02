@@ -46,10 +46,10 @@ chmod -R 755 /var/www/pan
 - 切换主题
 - 在线播放音乐
 - 在线预览图片
+- 视频在线播放
 
 需登录管理员适用以下功能
 
-- 视频在线播放
 - 登录验证
 - 文件上传
 - 新建文件夹
@@ -58,17 +58,17 @@ chmod -R 755 /var/www/pan
 
 ## 效果图
 
-![首页](./show-site/index.png)
+![首页](https://the0n3.top/medias/cloudpan/index.png)
 
-![主题](./show-site/dark.png)
+![主题](https://the0n3.top/medias/cloudpan/dark.png)
 
-![登录](./show-site/login.png)
+![登录](https://the0n3.top/medias/cloudpan/login.png)
 
-![在线音乐](./show-site/music.png)
+![在线音乐](https://the0n3.top/medias/cloudpan/music.png)
 
-![预览图片](./show-site/photos.png)
+![预览图片](https://the0n3.top/medias/cloudpan/photos.png)
 
-![在线视频](./show-site/video.png)
+![在线视频](https://the0n3.top/medias/cloudpan/video.png)
 
 ## 配置文件config.php
 
@@ -94,7 +94,6 @@ $icons = [
     'folder' => 'icons/folder_icon.png',
 ];
 
-
 # 网盘根目录，建议绝对路径。并且不要放在web目录下，否则可能造成文件上传等漏洞
 # 禁止web父级目录直接作为根目录
 $panDir = "/var/www/pan";
@@ -105,6 +104,19 @@ $musicDir = $panDir . '/mp3/';
 # 此处取消注释会报错
 # $videoDir = $panDir . '/video/';
 
+# admin超管账号，默认admin password，看到这里，请手动生成你的用户名和密码，换为md5摘要，不要明文存储
+$username = "admin";
+$password = "password";
+$predefinedMd5Hash = md5($username.":".$password);
+
+# 配置php允许上传文件的最大大小
+# php.ini相关配置已通过user.ini设置上限为1GB
+
+# 配置nginx允许上传文件的最大大小
+# 需要在nginx配置文件的server或location中添加下面配置，使能够上传1M大小以上的文件
+# nginx配置文件常见位置：/etc/nginx/sites-available/default
+# client_max_body_size 1024M;
+
 # 路径处理
 $dir = isset($_GET['dir']) ? urldecode($_GET['dir']) : '';
 $fullPath = realpath($panDir . '/' . $dir);
@@ -114,19 +126,6 @@ if ($fullPath === false || strpos($fullPath, $panDir) !== 0) {
 } else {
     $rootDir = $fullPath;
 }
-
-# admin超管账号，默认admin password，看到这里，请手动生成你的用户名和密码，换为md5摘要，不要明文存储
-# $predefinedMd5Hash = md5("$username".":"."$password");
-$predefinedMd5Hash = '73eff6386ce2091b5ca702fc007e1da9';
-
-# 允许上传文件的最大大小。
-# php.ini配置，已在.user.ini下设置，不用修改
-# upload_max_filesize = 1024M
-# post_max_size = 1024M
-# memory_limit = 1024M
-# 需要在nginx配置文件的server或location中添加下面配置，使能够上传1M大小以上的文件
-# nginx配置文件常见位置：/etc/nginx/sites-available/default
-# client_max_body_size 1024M;
 ```
 
 ## 样式
@@ -135,6 +134,7 @@ $predefinedMd5Hash = '73eff6386ce2091b5ca702fc007e1da9';
 
 ## 更新日志
 
-- 2024-08-30：上传功能，登录功能，视频播放功能，音乐播放功能，图片预览功能，管理员功能
-- 2024-08-30：添加.user.ini文件，免除手动修改php.ini的麻烦
+- 2024-09-02：去除在线视频需要登录的限制。发布v1.0.0版本，功能基础的网盘，在线影音
 - 2024-09-01：修复子目录文件无法下载
+- 2024-08-30：添加.user.ini文件，免除手动修改php.ini的麻烦
+- 2024-08-30：上传功能，登录功能，视频播放功能，音乐播放功能，图片预览功能，管理员功能
