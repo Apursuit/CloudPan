@@ -60,9 +60,7 @@ if ($isLoggedIn && $_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="index.php?dir=">首页</a>
             <a href="./src/music.php">音乐</a>
             <a href="./src/photos.php">图片</a>
-            <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']): ?>
             <a href="./src/video.php">视频</a>
-            <?php endif; ?>
             <?php if ($isLoggedIn): ?>
                 <!-- 如果用户已登录，显示退出选项 -->
                 <a href="./src/logout.php">退出</a>
