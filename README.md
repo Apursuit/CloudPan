@@ -58,6 +58,8 @@ chmod -R 755 /var/www/pan
 
 ## 效果图
 
+桌面端效果图
+
 ![首页](https://the0n3.top/medias/cloudpan/index.png)
 
 ![主题](https://the0n3.top/medias/cloudpan/dark.png)
@@ -69,6 +71,17 @@ chmod -R 755 /var/www/pan
 ![预览图片](https://the0n3.top/medias/cloudpan/photos.png)
 
 ![在线视频](https://the0n3.top/medias/cloudpan/video.png)
+
+移动端效果图
+
+![首页](https://the0n3.top/medias/cloudpan/index.jpg)
+
+![在线音乐](https://the0n3.top/medias/cloudpan/music.jpg)
+
+![预览图片](https://the0n3.top/medias/cloudpan/img.jpg)
+
+![在线视频](https://the0n3.top/medias/cloudpan/video.jpg)
+
 
 ## 配置文件config.php
 
@@ -134,7 +147,7 @@ if ($fullPath === false || strpos($fullPath, $panDir) !== 0) {
 
 ## 更新日志
 
-- 2024-09-02：去除在线视频需要登录的限制。发布v1.0.0版本，功能基础的网盘，在线影音
+- 2024-09-02：去除在线视频需要登录的限制。发布v1.0.0版本，功能基础的网盘，满足在线影音
 - 2024-09-01：修复子目录文件无法下载
 - 2024-08-30：添加.user.ini文件，免除手动修改php.ini的麻烦
 - 2024-08-30：上传功能，登录功能，视频播放功能，音乐播放功能，图片预览功能，管理员功能
